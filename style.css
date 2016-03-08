@@ -4,6 +4,12 @@
   display: block;
 }
 
+#selectedCondition {
+  height: 30px;
+  width: 70%;
+  border: solid grey .5px;
+}
+
 #formBox {
   border: solid black 1px;
 }
