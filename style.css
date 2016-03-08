@@ -1,3 +1,22 @@
-h1 {
-  color: green;
+.img-responsive {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+#formBox {
+  border: solid black 1px;
+}
+
+#resultsBox {
+  border: solid black 1px;
+}
+
+#footer {
+  background-color: #0D87E9;
+}
+
+#pFooter {
+  text-align: center;
+  color: white;
 }

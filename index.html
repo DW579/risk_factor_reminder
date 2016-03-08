@@ -1,13 +1,8 @@
 <!DOCTYPE html>
-<html lang="en">
-
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
-
-  <link href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/simplex/bootstrap.min.css" rel="stylesheet" integrity="sha256-rgHoMgF45/9e2kvxfvR0KarwQNw5CRqgxbrthGpeUuc= sha512-CGGV53FSdrXrjyGCNk04p+xuna3CbE33n773A0EEmqtcN8W3NaFsR0vSQcbll5dpSS90d3i2Zh3jFX/j46hzJA==" crossorigin="anonymous">
-
+<html>
+  <link rel="stylesheet" href="https://bootswatch.com/paper/bootstrap.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
-
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js" integrity="sha512-K1qjQ+NcF2TYO/eI3M6v8EiNYZfA95pQumfvcVrTHtwQVDG+aHRqLi/ETn2uB+1JqwYqVG3LIvdm9lj6imS/pQ==" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
   <head>
     <link rel="stylesheet" href="style.css"/>
     <script src='script.js'></script>
@@ -16,6 +11,145 @@
     <title>Risminder | Dustin Wurtz</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
+    <nav class="navbar navbar-default">
+        <div class="navbar-header">
+          <a class="navbar-brand" href="#">Risminder</a>
+        </div>
+    </nav>
+    <div class='row'>
+      <div class='col-md-12'>
+        <img src='hero_image.jpg' class='img-responsive'>
+      </div>
+    </div>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-4'>
+          <h2>Explanation</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class='col-md-4'>
+          <h2>Instructions</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class='col-md-4'>
+          <h2>Results</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+      </div>
+    </div>
+    <br class='col-md-12'>
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-5 col-md-offset-3'>
+          <button id='calendarButton' class='btn btn-lg btn-success center-block'>Add Calendar Reminder</button>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-5 col-md-offset-3'>
+          <label id='reminderLabel'>Calendar Reminder Date
+            <br>
+            <input type='number'></input>
+          </label>
+        </div>
+      </div>
+    </div>
+    <br class='col-md-12'>
+    <div class='container'>
+      <div class='row'>
+        <div id='formBox' class='col-md-4'>
+          <h3>Please fill out form</h3>
+          <label>Birthday
+            <br>
+            <input type='date'/>
+          </label>
+          <br>
+          <br>
+          <label>Gender
+            <br>
+            <input type='radio' name='gender'>Male</input>
+            <input type='radio' name='gender'>Female</input>
+          </label>
+          <br>
+          <br>
+          <label>Ethnicity
+            <br>
+            <input type='text'/>
+          </label>
+          <br>
+          <br>
+          <label>Weight
+            <br>
+            <input type='number'/>
+          </label>
+          <br>
+          <br>
+          <label>Height
+            <br>
+            <input type='number'/>
+          </label>
+        </div>
+
+        <div id='conditionBox' class='col-md-4'>
+          <h3>Conditions/Diseases</h3>
+          <div class='panel-group' id='accordion'>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <h4 class='panel-title'>
+                  <a id='macularSection' data-toggle='collapse' data-parent='#accordion' href='#collapse1'>Macular Degeneration, AMD</a>
+                </h4>
+              </div>
+              <div id='collapse1' class='panel-collapse collapse in'>
+                <div class='panel-body'>Age-related Macular Degeneration (AMD) is an age-associated degenerative disease of the macula, the central part of the retina (the sensory tissue that lines the back of the eye) that allows the eye to see fine details. AMD is a leading cause of vision loss among people age 50 and older.</div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <h4 class='panel-title'>
+                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse2'>Alzheimer Disease</a>
+                </h4>
+              </div>
+              <div id='collapse2' class='panel-collapse collapse'>
+                <div class='panel-body'>Alzheimer's Disease is a degenerative disease that slowly destroys brain cells. The symptoms of Alzheimer's disease get worse over time, but the progression of the disease varies. In the early stages it manifests as memory loss and as it progresses results in loss of thinking and language skills (cognitive ability) as well as behavioral changes.</div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <h4 class='panel-title'>
+                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse3'>Coronary artery disease</a>
+                </h4>
+              </div>
+              <div id='collapse3' class='panel-collapse collapse'>
+                <div class='panel-body'>Coronary artery disease is a blockage or damage of the arteries that supply blood, oxygen and nutrients to the heart muscle, often due to a buildup of plaque inside the arteries.</div>
+              </div>
+            </div>
+            <br>
+            <button type='button'>Submit</button>
+            <input id='selectedCondition' type='text'></input>
+          </div>
+        </div>
+
+        <div id='resultsBox' class='col-md-4'>
+          <h3>Results</h3>
+          <div class='well'>
+            <h5>Risk Level</h5>
+            <p>You are at a low-risk value</p>
+          </div>
+          <div class='well'>
+            <h5>Statics</h5>
+            <p>Only 5 and 10 people get it</p>
+          </div>
+          <div class='well'>
+            <h5>Other Info</h5>
+            <p>It only happens once</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div id='footer' class='row'>
+      <div class='col-md-12'>
+        <p id='pFooter'>&copy;Created and Produced by Dustin Wurtz | Galvanize Student</p>
+      </div>
+    </div>
   </body>
 </html>
