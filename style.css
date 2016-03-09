@@ -11,11 +11,12 @@
 }
 
 #formBox {
-  border: solid black 1px;
+  /*border: solid black 1px;*/
+  background-color: #F5F5F5;
 }
 
 #resultsBox {
-  border: solid black 1px;
+  /*border: solid black 1px;*/
 }
 
 #footer {

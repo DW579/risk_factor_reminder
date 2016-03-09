@@ -37,58 +37,11 @@
       </div>
     </div>
     <br class='col-md-12'>
-    <div class='container'>
-      <div class='row'>
-        <div class='col-md-5 col-md-offset-3'>
-          <button id='calendarButton' class='btn btn-lg btn-success center-block'>Add Calendar Reminder</button>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-md-5 col-md-offset-3'>
-          <label id='reminderLabel'>Calendar Reminder Date
-            <br>
-            <input type='number'></input>
-          </label>
-        </div>
-      </div>
-    </div>
+
     <br class='col-md-12'>
     <div class='container'>
       <div class='row'>
-        <div id='formBox' class='col-md-4'>
-          <h3>Please fill out form</h3>
-          <label>Birthday
-            <br>
-            <input type='date'/>
-          </label>
-          <br>
-          <br>
-          <label>Gender
-            <br>
-            <input type='radio' name='gender'>Male</input>
-            <input type='radio' name='gender'>Female</input>
-          </label>
-          <br>
-          <br>
-          <label>Ethnicity
-            <br>
-            <input type='text'/>
-          </label>
-          <br>
-          <br>
-          <label>Weight
-            <br>
-            <input type='number'/>
-          </label>
-          <br>
-          <br>
-          <label>Height
-            <br>
-            <input type='number'/>
-          </label>
-        </div>
-
-        <div id='conditionBox' class='col-md-4'>
+        <div id='conditionBox' class='col-md-5 col-md-offset-3'>
           <h3>Conditions/Diseases</h3>
           <div class='panel-group' id='accordion'>
             <div class='panel panel-default'>
@@ -124,11 +77,68 @@
             <br>
             <div id='selectedCondition'></div>
             <br>
-            <button type='button'>Submit</button>
+            <button id='submitButton' type='button'>Submit</button>
           </div>
         </div>
+      </div>
+    </div>
 
-        <div id='resultsBox' class='col-md-4'>
+    <div class='container'>
+      <div class='row'>
+        <div id='formBox' class='col-md-5 col-md-offset-3'>
+          <h3>Please fill out form</h3>
+          <label>Birth Year
+            <br>
+            <input id='birthYear' type='number' value='year'></input>
+          </label>
+          <br>
+          <br>
+          <label>Gender
+            <br>
+            <select id='gender' name='genders'>
+              <option value='male'>Male</option>
+              <option value='female'>Female</option>
+            </select>
+          </label>
+          <br>
+          <br>
+          <label>Ethnicity
+            <br>
+            <select id='eth' name='ethnicities'>
+              <option value='africanAmerican'>African American</option>
+              <option value='asian'>Asian</option>
+              <option value='asianIndian'>Asian Indian</option>
+              <option value='caucasian'>Caucasian</option>
+              <option value='hanChinese'>Han Chinese</option>
+              <option value='hispanic'>Hispanic</option>
+              <option value='japanese'>Japanese</option>
+              <option value='korean'>Korean</option>
+              <option value='nativeAmerican'>Native American</option>
+              <option value='pacificIslander'>Pacific Islander</option>
+              <option value='tuscan'>Tuscan</option>
+              <option value='other'>Other</option>
+              <option value='unknown'>Unknown</option>
+            </select>
+          </label>
+          <br>
+          <br>
+          <label>Weight
+            <br>
+            <input id='weightInput' type='number' value='weight'></input>
+          </label>
+          <br>
+          <br>
+          <label>Height
+            <br>
+            <input id='heightInput' type='number' value='height'></input>
+          </label>
+        </div>
+      </div>
+    </div>
+
+    <div class='container'>
+      <div class='row'>
+        <div id='resultsBox' class='col-md-5 col-md-offset-3'>
           <h3>Results</h3>
           <div class='well'>
             <h5>Risk Level</h5>
@@ -142,6 +152,22 @@
             <h5>Other Info</h5>
             <p>It only happens once</p>
           </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-5 col-md-offset-3'>
+          <button id='calendarButton' class='btn btn-lg btn-success center-block'>Add Calendar Reminder</button>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-5 col-md-offset-3'>
+          <label id='reminderLabel'>Calendar Reminder Date
+            <br>
+            <input type='number'></input>
+          </label>
         </div>
       </div>
     </div>
