@@ -41,51 +41,8 @@
     <br class='col-md-12'>
     <div class='container'>
       <div class='row'>
-        <div id='conditionBox' class='col-md-5 col-md-offset-3'>
-          <h3>Conditions/Diseases</h3>
-          <div class='panel-group' id='accordion'>
-            <div class='panel panel-default'>
-              <div class='panel-heading'>
-                <h4 id='macularSection' class='panel-title'>
-                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse1'>Macular Degeneration, AMD</a>
-                </h4>
-              </div>
-              <div id='collapse1' class='panel-collapse collapse'>
-                <div class='panel-body'>Age-related Macular Degeneration (AMD) is an age-associated degenerative disease of the macula, the central part of the retina (the sensory tissue that lines the back of the eye) that allows the eye to see fine details. AMD is a leading cause of vision loss among people age 50 and older.</div>
-              </div>
-            </div>
-            <div class='panel panel-default'>
-              <div class='panel-heading'>
-                <h4 id='alzheimerSection' class='panel-title'>
-                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse2'>Alzheimer Disease</a>
-                </h4>
-              </div>
-              <div id='collapse2' class='panel-collapse collapse'>
-                <div class='panel-body'>Alzheimer's Disease is a degenerative disease that slowly destroys brain cells. The symptoms of Alzheimer's disease get worse over time, but the progression of the disease varies. In the early stages it manifests as memory loss and as it progresses results in loss of thinking and language skills (cognitive ability) as well as behavioral changes.</div>
-              </div>
-            </div>
-            <div class='panel panel-default'>
-              <div class='panel-heading'>
-                <h4 id='coronarySection' class='panel-title'>
-                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse3'>Coronary Artery Disease</a>
-                </h4>
-              </div>
-              <div id='collapse3' class='panel-collapse collapse'>
-                <div class='panel-body'>Coronary artery disease is a blockage or damage of the arteries that supply blood, oxygen and nutrients to the heart muscle, often due to a buildup of plaque inside the arteries.</div>
-              </div>
-            </div>
-            <br>
-            <div id='selectedCondition'></div>
-            <br>
-            <button id='submitButton' type='button'>Submit</button>
-          </div>
-        </div>
-      </div>
-    </div>
 
-    <div class='container'>
-      <div class='row'>
-        <div id='formBox' class='col-md-5 col-md-offset-3'>
+        <div id='formBox' class='col-md-4'>
           <h3>Please fill out form</h3>
           <label>Birth Year
             <br>
@@ -132,17 +89,58 @@
             <br>
             <input id='heightInput' type='number' value='height'></input>
           </label>
+          <br>
+          <br>
+          <label>Blood Pressure
+            <br>
+            <input id='bloodPressureInput' type='number' value='blood'></input>
+          </label>
         </div>
-      </div>
-    </div>
 
-    <div class='container'>
-      <div class='row'>
-        <div id='resultsBox' class='col-md-5 col-md-offset-3'>
+        <div id='conditionBox' class='col-md-4'>
+          <h3>Conditions/Diseases</h3>
+          <div class='panel-group' id='accordion'>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <h4 id='macularSection' class='panel-title'>
+                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse1'>Macular Degeneration, AMD</a>
+                </h4>
+              </div>
+              <div id='collapse1' class='panel-collapse collapse'>
+                <div class='panel-body'>Age-related Macular Degeneration (AMD) is an age-associated degenerative disease of the macula, the central part of the retina (the sensory tissue that lines the back of the eye) that allows the eye to see fine details. AMD is a leading cause of vision loss among people age 50 and older.</div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <h4 id='alzheimerSection' class='panel-title'>
+                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse2'>Alzheimer Disease</a>
+                </h4>
+              </div>
+              <div id='collapse2' class='panel-collapse collapse'>
+                <div class='panel-body'>Alzheimer's Disease is a degenerative disease that slowly destroys brain cells. The symptoms of Alzheimer's disease get worse over time, but the progression of the disease varies. In the early stages it manifests as memory loss and as it progresses results in loss of thinking and language skills (cognitive ability) as well as behavioral changes.</div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <h4 id='coronarySection' class='panel-title'>
+                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse3'>Coronary Artery Disease</a>
+                </h4>
+              </div>
+              <div id='collapse3' class='panel-collapse collapse'>
+                <div class='panel-body'>Coronary artery disease is a blockage or damage of the arteries that supply blood, oxygen and nutrients to the heart muscle, often due to a buildup of plaque inside the arteries.</div>
+              </div>
+            </div>
+            <br>
+            <div id='selectedCondition'></div>
+            <br>
+            <button id='submitButton' type='button'>Submit</button>
+          </div>
+        </div>
+        <div id='resultsBox' class='col-md-4'>
           <h3>Results</h3>
-          <div class='well'>
-            <h5>Risk Level</h5>
-            <p>You are at a low-risk value</p>
+          <div id='riskWell' class='well'>
+            <h5>Risk Level at 65</h5>
+            <p>You are at a level of:</p>
           </div>
           <div class='well'>
             <h5>Statics</h5>

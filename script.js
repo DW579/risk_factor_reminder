@@ -1,94 +1,102 @@
+var $selectedCondition = $('#selectedCondition');
+
 // Condition section
-macularSection.addEventListener('click', function(){
-  selectedCondition.innerHTML = 'Macular Degeneration, AMD';
+var $macularSection = $('#macularSection');
+
+$macularSection.on('click', function(){
+  $selectedCondition.text('Macular Degeneration, AMD');
 })
 
-alzheimerSection.addEventListener('click', function() {
-  selectedCondition.innerHTML = 'Alzheimer Disease';
+var $alzheimerSection = $('#alzheimerSection');
+
+$alzheimerSection.on('click', function() {
+  $selectedCondition.text('Alzheimer Disease');
 })
 
-coronarySection.addEventListener('click', function() {
-  selectedCondition.innerHTML = 'Coronary Artery Disease';
+var $coronarySection = $('#coronarySection');
+
+$coronarySection.on('click', function() {
+  $selectedCondition.text('Coronary Artery Disease');
 })
 
-// Submit button event listener
-submitButton.addEventListener('click', function() {
-  var finishedForm = {
-    yearOfBirth: birthYear.value,
-    gender: gender.value,
-    ethnicity: eth.value,
-    'weight(lbs)': weightInput.value,
-    'height(in)': heightInput.value,
-  };
-  console.log(finishedForm);
-  var stringFinishedForm = (JSON.stringify(finishedForm));
-  console.log(stringFinishedForm);
+var $submitButton = $('#submitButton');
 
- if(selectedCondition.innerHTML === 'Macular Degeneration, AMD') {
+// Submit button for the form event listener
+$submitButton.on('click', function() {
+ if($selectedCondition.text() === 'Macular Degeneration, AMD') {
    var settings = {
-     "async": true,
-     "crossDomain": true,
-     "url": "https://api.basehealth.com/Genophen/api/v1/assessment/diseases/ageRelatedMacularDegeneration",
-     "method": "POST",
-     "headers": {
+     async: true,
+     crossDomain: true,
+     url: "https://api.basehealth.com/Genophen/api/v1/assessment/diseases/ageRelatedMacularDegeneration",
+     method: "POST",
+     headers: {
        "user_key": "ded92f1e09ae6a59c97207b6bb0194d2",
        "content-type": "application/json",
        "cache-control": "no-cache"
      },
-     "processData": false,
-    //  "data": "{  \"gender\": \"hello\", \"yearOfBirth\": \"goodbye\", \"ethnicity\": \"please\"\n}"
-     data: JSON.stringify({  "gender": gender.value, "yearOfBirth": birthYear.value, "ethnicity": eth.value}),
+     processData: false,
+     data: JSON.stringify({
+       "gender": gender.value,
+       "yearOfBirth": birthYear.value,
+       "ethnicity": eth.value,
+       "systolicBloodPressure(mmHg)": bloodPressureInput.value,
+       "weight(lbs)": weightInput.value,
+       "height(in)": heightInput.value
+     }),
    }
-
-   $.ajax(settings).done(function (response) {
-     alert(response);
+   $.ajax(settings).done(function(response) {
+     var data = JSON.parse(response);
+     $('#riskWell').append(data.diseases[0].risk65Level);
    });
-  //  $.ajax({
-  //    url: 'https://api.basehealth.com/Genophen/api/v1/assessment/diseases/alzheimersDisease',
-  //    headers: {
-  //      "user_key" : "ded92f1e09ae6a59c97207b6bb0194d2"
-  //    },
-  //    contentType: 'application/json',
-  //    data: {
-  //       gender : "male",
-  //       yearOfBirth : "1965"
-  //     },
-  //    dataType: "JSON",
-  //    method: 'POST',
-  //    success: function(data) {
-  //      alert(JSON.stringify(data));
-  //    },
-  //    error: function (data) {
-  //      console.log('error: ', data);
-  //    }
-  //  })
- } else if(selectedCondition.innerHTML === 'Alzheimer Disease') {
-  console.log(JSON.stringify(finishedForm));
+ } else if($selectedCondition.text() === 'Alzheimer Disease') {
+   var settings = {
+     async: true,
+     crossDomain: true,
+     url: "https://api.basehealth.com/Genophen/api/v1/assessment/diseases/alzheimersDisease",
+     method: "POST",
+     headers: {
+       "user_key": "ded92f1e09ae6a59c97207b6bb0194d2",
+       "content-type": "application/json",
+       "cache-control": "no-cache"
+     },
+     processData: false,
+     data: JSON.stringify({
+       "gender": gender.value,
+       "yearOfBirth": birthYear.value,
+       "ethnicity": eth.value,
+       "systolicBloodPressure(mmHg)": bloodPressureInput.value,
+       "weight(lbs)": weightInput.value,
+       "height(in)": heightInput.value
+     }),
+   }
+   $.ajax(settings).done(function (response) {
+     var data = JSON.parse(response);
+     $('#riskWell').append(data.diseases[0].risk65Level);
+   });
  } else {
-   console.log('you are on a role');
+   var settings = {
+     async: true,
+     crossDomain: true,
+     url: "https://api.basehealth.com/Genophen/api/v1/assessment/diseases/coronaryArteryDisease",
+     method: "POST",
+     headers: {
+       "user_key": "ded92f1e09ae6a59c97207b6bb0194d2",
+       "content-type": "application/json",
+       "cache-control": "no-cache"
+     },
+     processData: false,
+     data: JSON.stringify({
+      "gender": gender.value,
+      "yearOfBirth": birthYear.value,
+      "ethnicity": eth.value,
+      "systolicBloodPressure(mmHg)": bloodPressureInput.value,
+      "weight(lbs)": weightInput.value,
+      "height(in)": heightInput.value
+    }),
+   }
+   $.ajax(settings).done(function (response) {
+     var data = JSON.parse(response);
+     $('#riskWell').append(data.diseases[0].risk65Level);
+   });
  }
 })
-
-
-// var finishedForm = {
-//   yearOfBirth: birthYear.value,
-//   gender: gender.value,
-//   ethnicity: eth.value,
-//   'weight(lbs)': weightInput.value,
-//   'height(in)': heightInput.value,
-// };
-//
-// var settings = {
-//   "async": true,
-//   "crossDomain": true,
-//   "url": "https://api.basehealth.com/Genophen/api/v1/assessment/diseases/alzheimersDisease",
-//   "method": "POST",
-//   "headers": {
-//     "user_key": "ded92f1e09ae6a59c97207b6bb0194d2",
-//     "content-type": "application/json",
-//     "cache-control": "no-cache"
-//   },
-//   "processData": false,
-//  //  "data": "{  \"gender\": \"gender.value\", \"yearOfBirth\": \"birthYear.value\", \"ethnicity\": \"eth.value\"\n}"
-//  finishedForm,
-// }
