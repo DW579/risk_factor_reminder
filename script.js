@@ -1,6 +1,5 @@
 var $selectedCondition = $('#selectedCondition');
 
-// Condition section
 var $macularSection = $('#macularSection');
 
 $macularSection.on('click', function(){
@@ -21,7 +20,6 @@ $coronarySection.on('click', function() {
 
 var $submitButton = $('#submitButton');
 
-// Submit button for the form event listener
 $submitButton.on('click', function() {
  if($selectedCondition.text() === 'Macular Degeneration, AMD') {
    var settings = {
@@ -41,12 +39,22 @@ $submitButton.on('click', function() {
        "ethnicity": eth.value,
        "systolicBloodPressure(mmHg)": bloodPressureInput.value,
        "weight(lbs)": weightInput.value,
-       "height(in)": heightInput.value
+       "height(in)": heightInput.value,
+       "ageQuitSmoking": ageQuitSmoking.value,
+       "ageWhenBeganSmoking": ageBeganSmoking.value,
+       "hasSmoked100CigarettesInLifetime": lifetimeSmoke.value,
+       "isCurrentSmoker": currentSmoker.value,
+       "isTakingActionToQuit": stopSmoking.value,
+       "numberWeeklyCigarettesWhenLastSmoked": weeklyCigs.value,
+       "relationship": familyMember.value,
+       "disease": familyMemberCondition.value,
+       "ageOfOnset": ageOnset.value
      }),
    }
    $.ajax(settings).done(function(response) {
      var data = JSON.parse(response);
-     $('#riskWell').append(data.diseases[0].risk65Level);
+     $('#riskLevel').append(data.diseases[0].risk65Level);
+     $('#lifetimeOdds').append(data.diseases[0].lifetimeOdds);
    });
 
    var settings = {
@@ -63,7 +71,14 @@ $submitButton.on('click', function() {
    }
    $.ajax(settings).done(function(response) {
      var data = JSON.parse(response);
-     $('#statWell').append(data.statistics.cost);
+     $('#statCost').append(data.statistics.cost);
+     $('#statIn').append(data.statistics.incidence);
+     $('#statPre').append(data.statistics.prevalence);
+     $('#moreInfo').append(data.genetics.summary);
+     $('#modRisk').append(data.risk_factors.modifiable);
+     $('#preventionWell').append(data.risk_prevention[0].actions);
+     $('#preventionWell').append(data.risk_prevention[1].actions);
+     $('#preventionWell').append(data.risk_prevention[2].actions);
    });
 
  } else if($selectedCondition.text() === 'Alzheimer Disease') {
@@ -84,13 +99,43 @@ $submitButton.on('click', function() {
        "ethnicity": eth.value,
        "systolicBloodPressure(mmHg)": bloodPressureInput.value,
        "weight(lbs)": weightInput.value,
-       "height(in)": heightInput.value
+       "height(in)": heightInput.value,
+       "relationship": familyMember.value,
+       "disease": familyMemberCondition.value,
+       "ageOfOnset": ageOnset.value,
+       "diastolicBloodPressure(mmHg)": diastolicBlood.value
      }),
    }
    $.ajax(settings).done(function (response) {
      var data = JSON.parse(response);
-     $('#riskWell').append(data.diseases[0].risk65Level);
+     $('#riskLevel').append(data.diseases[0].risk65Level);
+     $('#lifetimeOdds').append(data.diseases[0].lifetimeOdds);
    });
+   var settings = {
+     async: true,
+     crossDomain: true,
+     url: "https://api.basehealth.com/Genophen/api/v1/diseases/alzheimersDisease",
+     method: "GET",
+     headers: {
+       "user_key": "ded92f1e09ae6a59c97207b6bb0194d2",
+       "content-type": "application/json",
+       "cache-control": "no-cache"
+     },
+     processData: false,
+   }
+   $.ajax(settings).done(function(response) {
+     var data = JSON.parse(response);
+     $('#statCost').append(data.statistics.cost);
+     $('#statIn').append(data.statistics.hospitalizations);
+     $('#statIn').append(data.statistics.mortality);
+     $('#statPre').append(data.statistics.prevalence);
+     $('#moreInfo').append(data.genetics.summary);
+     $('#modRisk').append(data.risk_factors.modifiable);
+     $('#preventionWell').append(data.risk_prevention[0].actions);
+     $('#preventionWell').append(data.risk_prevention[1].actions);
+     $('#preventionWell').append(data.risk_prevention[2].actions);
+   });
+
  } else {
    var settings = {
      async: true,
@@ -109,12 +154,47 @@ $submitButton.on('click', function() {
       "ethnicity": eth.value,
       "systolicBloodPressure(mmHg)": bloodPressureInput.value,
       "weight(lbs)": weightInput.value,
-      "height(in)": heightInput.value
+      "height(in)": heightInput.value,
+      "diastolicBloodPressure(mmHg)": diastolicBlood.value,
+      "relationship": familyMember.value,
+      "disease": familyMemberCondition.value,
+      "ageOfOnset": ageOnset.value,
+      "ageQuitSmoking": ageQuitSmoking.value,
+      "ageWhenBeganSmoking": ageBeganSmoking.value,
+      "hasSmoked100CigarettesInLifetime": lifetimeSmoke.value,
+      "isCurrentSmoker": currentSmoker.value,
+      "isTakingActionToQuit": stopSmoking.value,
+      "numberWeeklyCigarettesWhenLastSmoked": weeklyCigs.value
     }),
    }
    $.ajax(settings).done(function (response) {
      var data = JSON.parse(response);
-     $('#riskWell').append(data.diseases[0].risk65Level);
+     $('#riskLevel').append(data.diseases[0].risk65Level);
+     $('#lifetimeOdds').append(data.diseases[0].lifetimeOdds);
+   });
+   var settings = {
+     async: true,
+     crossDomain: true,
+     url: "https://api.basehealth.com/Genophen/api/v1/diseases/coronaryArteryDisease",
+     method: "GET",
+     headers: {
+       "user_key": "ded92f1e09ae6a59c97207b6bb0194d2",
+       "content-type": "application/json",
+       "cache-control": "no-cache"
+     },
+     processData: false,
+   }
+   $.ajax(settings).done(function(response) {
+     var data = JSON.parse(response);
+     $('#statCost').append(data.statistics.cost);
+     $('#statIn').append(data.statistics.hospitalizations);
+     $('#statIn').append(data.statistics.mortality);
+     $('#statPre').append(data.statistics.prevalence);
+     $('#moreInfo').append(data.genetics.summary);
+     $('#modRisk').append(data.risk_factors.modifiable);
+     $('#preventionWell').append(data.risk_prevention[0].actions);
+     $('#preventionWell').append(data.risk_prevention[1].actions);
+     $('#preventionWell').append(data.risk_prevention[2].actions);
    });
  }
 })
@@ -151,6 +231,8 @@ var request = gapi.client.calendar.events.insert({
   'calendarId': 'primary',
   'resource': event
 });
+
+
 
 request.execute(function(event) {
   appendPre('Event created: ' + event.htmlLink);

@@ -12,7 +12,7 @@
   <body>
     <nav class="navbar navbar-default">
         <div class="navbar-header">
-          <a class="navbar-brand" href="#">Risminder</a>
+          <a class="navbar-brand" href="index.html">Risminder</a>
         </div>
     </nav>
     <div class='row'>
@@ -37,11 +37,24 @@
       </div>
     </div>
     <br class='col-md-12'>
-
+    <div class='container'>
+      <div class='row'>
+        <div class='col-md-5 col-md-offset-3'>
+          <button id='calendarButton' class='btn btn-lg btn-success center-block'">Add Calendar Reminder</button>
+        </div>
+      </div>
+      <div class='row'>
+        <div class='col-md-5 col-md-offset-3'>
+          <label id='reminderLabel'>Calendar Reminder Date
+            <br>
+            <input type='number'></input>
+          </label>
+        </div>
+      </div>
+    </div>
     <br class='col-md-12'>
     <div class='container'>
       <div class='row'>
-
         <div id='formBox' class='col-md-4'>
           <h3>Please fill out form</h3>
           <label>Birth Year
@@ -91,9 +104,183 @@
           </label>
           <br>
           <br>
-          <label>Blood Pressure
+          <label>Blood Pressure (mmHg)
             <br>
             <input id='bloodPressureInput' type='number' value='blood'></input>
+          </label>
+          <br>
+          <br>
+          <label>Diastolic Blood Pressure (mmHg)
+            <br>
+            <input id='diastolicBlood' type='number' value='diastolic'></input>
+          </label>
+          <br>
+          <h5>Conditions/Diseases Diagnosed</h5>
+          <label id='diagnosedWith'>Please select any condition that you have been diagnosed
+            <br>
+            <input type='checkbox' value='asthma' class='diagnosed'>Asthma</input>
+            <br>
+            <input type='checkbox' value='atopicDermatitis' class='diagnosed'>Atopic Dermatitis</input>
+            <br>
+            <input type='checkbox' value='atrialFibrillation' class='diagnosed'>Atrial Fibrillation</input>
+            <br>
+            <input type='checkbox' value='cardiomyopathy' class='diagnosed'>Cardiomyopathy</input>
+            <br>
+            <input type='checkbox' value='copd' class='diagnosed'>COPD</input>
+            <br>
+            <input type='checkbox' value='crohnsDisease' class='diagnosed'>Crohns Disease</input>
+            <br>
+            <input type='checkbox' value='eclampsia' class='diagnosed'>Eclampsia</input>
+            <br>
+            <input type='checkbox' value='endometriosis' class='diagnosed'>Endometriosis</input>
+            <br>
+            <input type='checkbox' value='gestationalDiabetes' class='diagnosed'>Gestational Diabetes</input>
+            <br>
+            <input type='checkbox' value='gestationalHypertension' class='diagnosed'>Gestational Hypertension</input>
+            <br>
+            <input type='checkbox' value='gonorrhea' class='diagnosed'>Gonorrhea</input>
+            <br>
+            <input type='checkbox' value='heartFailure' class='diagnosed'>Heart Failure</input>
+            <br>
+            <input type='checkbox' value='hypercholesterolemia' class='diagnosed'>Hypercholesterolemia</input>
+            <br>
+            <input type='checkbox' value='hyperthyroidism' class='diagnosed'>Hyperthyroidism</input>
+            <br>
+            <input type='checkbox' value='insomniaOrHypersomnia' class='diagnosed'>Insomnia Or Hypersomnia</input>
+            <br>
+            <input type='checkbox' value='inflammatoryBowelDisease' class='diagnosed'>Inflammatory Bowel Disease</input>
+            <br>
+            <input type='checkbox' value='irritableBowelDisease' class='diagnosed'>Irritable Bowel Disease</input>
+            <br>
+            <input type='checkbox' value='myocardialInfarction' class='diagnosed'>Myocardial Infarction</input>
+            <br>
+            <input type='checkbox' value='obstructiveSleepApnea' class='diagnosed'>Obstructive Sleep Apnea</input>
+            <br>
+            <input type='checkbox' value='polycysticOvarianDisease' class='diagnosed'>Polycystic Ovarian Disease</input>
+            <br>
+            <input type='checkbox' value='stroke' class='diagnosed'>Stroke</input>
+            <br>
+            <input type='checkbox' value='syphilis' class='diagnosed'>Syphilis</input>
+            <br>
+            <input type='checkbox' value='type2Diabetes' class='diagnosed'>Type 2 Diabetes</input>
+            <br>
+            <input type='checkbox' value='valveDisease' class='diagnosed'>Valve Disease</input>
+            <br>
+            <input type='checkbox' value='otherSTD' class='diagnosed'>Other STD</input>
+          </label>
+          <br>
+          <br>
+          <h5>Smoking History</h5>
+          <br>
+          <label>Age Began Smoking
+            <br>
+            <input id='ageBeganSmoking' type='number' value='began'></input>
+          </label>
+          <br>
+          <br>
+          <label>Age Quit Smoking
+            <br>
+            <input id='ageQuitSmoking' type='number' value='age'></input>
+          </label>
+          <br>
+          <br>
+          <label>Have you smoked over 100 cigarettes in your lifetime?
+            <br>
+            <select id='lifetimeSmoke' name='cigYesNo'>
+              <option value=''>Blank</option>
+              <option value='yes'>Yes</option>
+              <option value='no'>No</option>
+            </select>
+          </label>
+          <br>
+          <br>
+          <label>Current Smoker?
+            <br>
+            <select id='currentSmoker' name='somkerYesNo'>
+              <option value=''>Blank</option>
+              <option value='yes'>Yes</option>
+              <option value='no'>No</option>
+            </select>
+          </label>
+          <br>
+          <br>
+          <label>Are you taking actions to stop smoking?
+            <br>
+            <select id='stopSmoking' name='stopYesNo'>
+              <option value=''>Blank</option>
+              <option value='yes'>Yes</option>
+              <option value='no'>No</option>
+            </select>
+          </label>
+          <br>
+          <br>
+          <label>Last time smoked, how many cigarettes were smoked weekly?
+            <br>
+            <input id='weeklyCigs' type='number' value='weekly'></input>
+          </label>
+          <br>
+          <br>
+          <h5>Family History</h5>
+          <br>
+          <label>Family member with most sever condition
+            <br>
+            <select id='familyMember' name='relationship'>
+              <option value=''>Blank</option>
+              <option value='brother'>Brother</option>
+              <option value='father'>Father</option>
+              <option value='mother'>Mother</option>
+              <option value='maternalAunt'>Maternal Aunt</option>
+              <option value='maternalGrandfather'>Maternal Grandfather</option>
+              <option value='maternalGrandmother'>Maternal Grandmother</option>
+              <option value='maternalUncle'>Maternal Uncle</option>
+              <option value='paternalAunt'>Paternal Aunt</option>
+              <option value='paternalGrandfather'>Paternal Grandfather</option>
+              <option value='paternalGrandmother'>Paternal Grandmother</option>
+              <option value='paternalUncle'>Paternal Uncle</option>
+              <option value='sister'>Sister</option>
+            </select>
+          </label>
+          <br>
+          <br>
+          <label>Family member's condition
+            <br>
+            <select id='familyMemberCondition' name='fMemberCondtion'>
+              <option value=''>Blank</option>
+              <option value='abdomninalAorticAneurysm'>Abdomninal Aortic Aneurysm</option>
+              <option value='ageRelatedMacularDegeneration'>Age Related Macular Degeneration</option>
+              <option value='alzheimersDisease'>Alzheimers Disease</option>
+              <option value='allergicRhinitis'>Allergic Rhinitis</option>
+              <option value='asthma'>Asthma</option>
+              <option value='atrialFibrillation'>Atrial Fibrillation</option>
+              <option value='breastCancer'>Breast Cancer</option>
+              <option value='colorectalCancer'>Colorectal Cancer</option>
+              <option value='coronaryArteryDisease'>Coronary Artery Disease</option>
+              <option value='deepVenousThrombosis'>Deep Venous Thrombosis</option>
+              <option value='depression'>Depression</option>
+              <option value='downSyndrome'>Down Syndrome</option>
+              <option value='hypertension'>Hypertension</option>
+              <option value='generalAsthma'>General Asthma</option>
+              <option value='lungCancer'>Lung Cancer</option>
+              <option value='melanoma'>Melanoma</option>
+              <option value='osteoporosis'>Osteoporosis</option>
+              <option value='prostateCancer'>Prostate Cancer</option>
+              <option value='rheumatoidArthritis'>Rheumatoid Arthritis</option>
+              <option value='sleepApnea'>Sleep Apnea</option>
+              <option value='type2Diabetes'>Type 2 Diabetes</option>
+            </select>
+          </label>
+          <br>
+          <br>
+          <label>Age of Offset of condition/disease
+            <br>
+            <select id='ageOnset' name='onsetAge'>
+              <option value='below 30'>Below 30</option>
+              <option value='30-39'>30-39</option>
+              <option value='40-49'>40-49</option>
+              <option value='50-59'>50-59</option>
+              <option value='60 or above'>60 or above</option>
+              <option value='unknown'>Unknown</option>
+            </select>
           </label>
         </div>
 
@@ -140,32 +327,30 @@
           <h3>Results</h3>
           <div id='riskWell' class='well'>
             <h5>Risk Level at 65</h5>
-            <p>You are at a level of:</p>
+            <h6>You are at a level of:</h6>
+            <p id='riskLevel'></p>
+            <h6>Lifetime Odds 1 to 10</h6>
+            <p id='lifetimeOdds'></p>
+          </div>
+          <div id='preventionWell' class='well'>
+            <h5>Risk Prevention</h5>
+            <h6>Modifiable Risk Factors</h6>
+            <p id='modRisk'></p>
+            <h6>Risk Prevention</h6>
+          </div>
+          <div class='well'>
+            <h5>Genetic Info</h5>
+            <p id='moreInfo'></p>
           </div>
           <div id='statWell' class='well'>
             <h5>Statistics</h5>
-            <p></p>
+            <h6>Cost</h6>
+            <p id='statCost'></p>
+            <h6>Incidences</h6>
+            <p id='statIn'></p>
+            <h6>Prevalence</h6>
+            <p id='statPre'></p>
           </div>
-          <div class='well'>
-            <h5>Other Info</h5>
-            <p>It only happens once</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class='container'>
-      <div class='row'>
-        <div class='col-md-5 col-md-offset-3'>
-          <button id='calendarButton' class='btn btn-lg btn-success center-block'>Add Calendar Reminder</button>
-        </div>
-      </div>
-      <div class='row'>
-        <div class='col-md-5 col-md-offset-3'>
-          <label id='reminderLabel'>Calendar Reminder Date
-            <br>
-            <input type='number'></input>
-          </label>
         </div>
       </div>
     </div>
