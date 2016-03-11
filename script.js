@@ -19,6 +19,7 @@ $coronarySection.on('click', function() {
 })
 
 var $submitButton = $('#submitButton');
+var $calendarDateSet = $('#calendarDateSet');
 
 $submitButton.on('click', function() {
  if($selectedCondition.text() === 'Macular Degeneration, AMD') {
@@ -81,6 +82,15 @@ $submitButton.on('click', function() {
      $('#preventionWell').append(data.risk_prevention[2].actions);
    });
 
+    //   var ageOfUser = 2016 - birthYear.value;
+    //  console.log(ageOfUser);
+    //  var yearDifference = 65 - ageOfUser;
+    //  console.log(yearDifference);
+    //  var futureYears = 2016 + yearDifference;
+    //  console.log(futureYears);
+
+     $calendarDateSet.text(2016 + '-' + birthMonth.value + '-' + birthDay.value + 'T09:00:00-07:00');
+
  } else if($selectedCondition.text() === 'Alzheimer Disease') {
    var settings = {
      async: true,
@@ -134,6 +144,8 @@ $submitButton.on('click', function() {
      $('#preventionWell').append(data.risk_prevention[0].actions);
      $('#preventionWell').append(data.risk_prevention[1].actions);
      $('#preventionWell').append(data.risk_prevention[2].actions);
+
+     $calendarDateSet.text(2016 + '-' + birthMonth.value + '-' + birthDay.value + 'T09:00:00-07:00');
    });
 
  } else {
@@ -195,6 +207,8 @@ $submitButton.on('click', function() {
      $('#preventionWell').append(data.risk_prevention[0].actions);
      $('#preventionWell').append(data.risk_prevention[1].actions);
      $('#preventionWell').append(data.risk_prevention[2].actions);
+
+     $calendarDateSet.text(2016 + '-' + birthMonth.value + '-' + birthDay.value + 'T09:00:00-07:00');
    });
  }
 })
@@ -205,9 +219,6 @@ var CLIENT_ID = '72020936013-6e7i4ehac00n0rh5bh2321h0nmuu5b3r.apps.googleusercon
 
 var SCOPES = ["https://www.googleapis.com/auth/calendar"];
 
-/**
- * Check if current user has authorized this application.
- */
 function checkAuth() {
   gapi.auth.authorize(
     {
@@ -217,32 +228,19 @@ function checkAuth() {
     }, handleAuthResult);
 }
 
-/**
- * Handle response from authorization server.
- *
- * @param {Object} authResult Authorization result.
- */
 function handleAuthResult(authResult) {
   var authorizeDiv = document.getElementById('authorize-div');
   if (authResult && !authResult.error) {
-    console.log(authResult);
-    // Hide auth UI, then load client library.
     authorizeDiv.style.display = 'none';
     document.getElementById('calendarButton').style.display = 'block';
     loadCalendarApi();
-  } else {
-    // Show auth UI, allowing the user to initiate authorization by
-    // clicking authorize button.
+  }
+  else {
     authorizeDiv.style.display = 'inline';
     document.getElementById('calendarButton').style.display = 'none';
   }
 }
 
-/**
- * Initiate auth flow in response to user clicking authorize button.
- *
- * @param {Event} event Button click event.
- */
 function handleAuthClick(event) {
   gapi.auth.authorize(
     {client_id: CLIENT_ID, scope: SCOPES, immediate: false},
@@ -250,29 +248,27 @@ function handleAuthClick(event) {
   return false;
 }
 
-/**
- * Load Google Calendar client library. List upcoming events
- * once client library is loaded.
- */
 function loadCalendarApi() {
-  gapi.client.load('calendar', 'v3', createDummyEvent);
+  gapi.client.load('calendar', 'v3');
 }
 
-function createDummyEvent() {
+var $calendarButton = $('#calendarButton');
+var $selectedCondition = $('#selectedCondition');
+
+$calendarButton.on('click', function() {
   var event = {
-    'summary': 'Google I/O 2015',
-    'location': '800 Howard St., San Francisco, CA 94103',
-    'description': 'A chance to hear more about Google\'s developer products.',
+    'summary': $selectedCondition.text(),
+    'description': 'A reminder from Riskminder65 to follow up on the current risk level of the specified condition',
     'start': {
-      'dateTime': '2015-05-28T09:00:00-07:00',
+      'dateTime': $calendarDateSet.text(),
       'timeZone': 'America/Los_Angeles'
     },
     'end': {
-      'dateTime': '2015-05-28T17:00:00-07:00',
+      'dateTime': $calendarDateSet.text(),
       'timeZone': 'America/Los_Angeles'
     },
     'recurrence': [
-      'RRULE:FREQ=DAILY;COUNT=2'
+      'RRULE:FREQ=YEARLY'
     ],
     'reminders': {
       'useDefault': false,
@@ -291,4 +287,8 @@ function createDummyEvent() {
   request.execute(function(event) {
     console.log('Event created: ' + event.htmlLink);
   });
-}
+})
+//
+// function createDummyEvent() {
+//
+// }

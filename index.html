@@ -12,7 +12,7 @@
   <body>
     <nav class="navbar navbar-default">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">Risminder</a>
+          <a class="navbar-brand" href="index.html">Reminder for 65</a>
         </div>
     </nav>
     <div class='row'>
@@ -41,20 +41,12 @@
       <div class='row'>
         <div class='col-md-5 col-md-offset-3' id="authorize-div" style="display: none">
           <span>Authorize access to Google Calendar API</span>
-          <!--Button for the user to click to initiate auth sequence -->
           <button id="authorize-button" onclick="handleAuthClick(event)">
             Authorize
           </button>
         </div>
         <button id='calendarButton' class='btn btn-lg btn-success center-block authorized' style="display: none">Add Calendar Reminder</button>
-      </div>
-      <div class='row'>
-        <div class='col-md-5 col-md-offset-3'>
-          <label id='reminderLabel'>Calendar Reminder Date
-            <br>
-            <input type='number'></input>
-          </label>
-        </div>
+        <div id='calendarDateSet'></div>
       </div>
     </div>
     <br class='col-md-12'>
@@ -62,6 +54,14 @@
       <div class='row'>
         <div id='formBox' class='col-md-4'>
           <h3>Please fill out form</h3>
+          <label>Birth Month
+            <br>
+            <input id='birthMonth' type='number'></input>
+          </label>
+          <label>Birth Day
+            <br>
+            <input id='birthDay' type='number'></input>
+          </label>
           <label>Birth Year
             <br>
             <input id='birthYear' type='number' value='year'><i>Required</i></input>

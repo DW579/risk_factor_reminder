@@ -4,10 +4,22 @@
   display: block;
 }
 
+#calendarDateSet {
+  height: 30px;
+  width: 15%;
+  border: solid grey .5px;
+  margin-left: 490px;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-top: 4px;
+}
+
 #selectedCondition {
   height: 30px;
-  width: 70%;
+  width: 60%;
   border: solid grey .5px;
+  padding-left: 10px;
+  padding-top: 4px;
 }
 
 #formBox {
