@@ -39,9 +39,14 @@
     <br class='col-md-12'>
     <div class='container'>
       <div class='row'>
-        <div class='col-md-5 col-md-offset-3'>
-          <button id='calendarButton' class='btn btn-lg btn-success center-block'">Add Calendar Reminder</button>
+        <div class='col-md-5 col-md-offset-3' id="authorize-div" style="display: none">
+          <span>Authorize access to Google Calendar API</span>
+          <!--Button for the user to click to initiate auth sequence -->
+          <button id="authorize-button" onclick="handleAuthClick(event)">
+            Authorize
+          </button>
         </div>
+        <button id='calendarButton' class='btn btn-lg btn-success center-block authorized' style="display: none">Add Calendar Reminder</button>
       </div>
       <div class='row'>
         <div class='col-md-5 col-md-offset-3'>
@@ -361,5 +366,6 @@
       </div>
     </div>
     <script src='script.js'></script>
+    <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
   </body>
 </html>
