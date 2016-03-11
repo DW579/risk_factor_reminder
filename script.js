@@ -82,13 +82,6 @@ $submitButton.on('click', function() {
      $('#preventionWell').append(data.risk_prevention[2].actions);
    });
 
-    //   var ageOfUser = 2016 - birthYear.value;
-    //  console.log(ageOfUser);
-    //  var yearDifference = 65 - ageOfUser;
-    //  console.log(yearDifference);
-    //  var futureYears = 2016 + yearDifference;
-    //  console.log(futureYears);
-
      $calendarDateSet.text(2016 + '-' + birthMonth.value + '-' + birthDay.value + 'T09:00:00-07:00');
 
  } else if($selectedCondition.text() === 'Alzheimer Disease') {
@@ -215,6 +208,8 @@ $submitButton.on('click', function() {
 
 //******Below is code for calendar api call*********
 
+var $reminderInformation = $('#reminderWell');
+
 var CLIENT_ID = '72020936013-6e7i4ehac00n0rh5bh2321h0nmuu5b3r.apps.googleusercontent.com';
 
 var SCOPES = ["https://www.googleapis.com/auth/calendar"];
@@ -258,7 +253,7 @@ var $selectedCondition = $('#selectedCondition');
 $calendarButton.on('click', function() {
   var event = {
     'summary': $selectedCondition.text(),
-    'description': 'A reminder from Riskminder65 to follow up on the current risk level of the specified condition',
+    'description': $reminderInformation.text(),
     'start': {
       'dateTime': $calendarDateSet.text(),
       'timeZone': 'America/Los_Angeles'
@@ -278,6 +273,7 @@ $calendarButton.on('click', function() {
       ]
     }
   };
+  alert('Please visit your Google Calendar for the reminder');
 
   var request = gapi.client.calendar.events.insert({
     'calendarId': 'primary',
@@ -288,7 +284,3 @@ $calendarButton.on('click', function() {
     console.log('Event created: ' + event.htmlLink);
   });
 })
-//
-// function createDummyEvent() {
-//
-// }

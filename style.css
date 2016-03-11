@@ -4,6 +4,28 @@
   display: block;
 }
 
+#heroImage {
+  color: white;
+  padding-left: 30px;
+  padding-right: 30px;
+  text-shadow: 3px 3px 6px black;
+}
+
+#heroButton {
+  margin-left: 550px;
+  margin-top: 180px;
+}
+
+#navBar {
+  margin: 0;
+}
+
+#jumbotronDiv {
+  background: url('hero_image.jpg');
+  height: 470px;
+  width: 100%;
+}
+
 #calendarDateSet {
   height: 30px;
   width: 15%;
