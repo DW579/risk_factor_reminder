@@ -1,25 +1,21 @@
 var $selectedCondition = $('#selectedCondition');
-
 var $macularSection = $('#macularSection');
+var $alzheimerSection = $('#alzheimerSection');
+var $coronarySection = $('#coronarySection');
+var $submitButton = $('#submitButton');
+var $calendarDateSet = $('#calendarDateSet');
 
 $macularSection.on('click', function(){
   $selectedCondition.text('Macular Degeneration, AMD');
 })
 
-var $alzheimerSection = $('#alzheimerSection');
-
 $alzheimerSection.on('click', function() {
   $selectedCondition.text('Alzheimer Disease');
 })
 
-var $coronarySection = $('#coronarySection');
-
 $coronarySection.on('click', function() {
   $selectedCondition.text('Coronary Artery Disease');
 })
-
-var $submitButton = $('#submitButton');
-var $calendarDateSet = $('#calendarDateSet');
 
 $submitButton.on('click', function() {
  if($selectedCondition.text() === 'Macular Degeneration, AMD') {

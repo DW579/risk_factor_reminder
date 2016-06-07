@@ -6,13 +6,14 @@
   <head>
     <link rel="stylesheet" href="style.css"/>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
     <meta charset='utf-8'>
     <title>Risminder | Dustin Wurtz</title>
   </head>
   <body>
     <nav  id='navBar' class="navbar navbar-default">
         <div class="navbar-header">
-          <a class="navbar-brand" href="index.html">Reminder for 65</a>
+          <a class="navbar-brand">Risk Reminder 65</a>
         </div>
     </nav>
     <div class='row'>
@@ -31,15 +32,15 @@
         </div>
         <div class='col-md-4'>
           <h2>Instructions</h2>
-          <p>Please fill out the form with as much information at desired. The Information the better the results. Then submit your form.</p>
+          <p>Please fill out the form with as much information as desired. More information will produce better results. Then submit your form.</p>
         </div>
         <div class='col-md-4'>
           <h2>Results</h2>
-          <p>After you receive your results, select the 'Add Calendar Reminder' button to add your automatic Google Calendar reminder for a yearly reminder.</p>
+          <p>After you receive your results, select the 'Add Calendar Reminder' button to add your automatic Google Calendar reminder on your 65th birthday.</p>
         </div>
       </div>
     </div>
-    <br class='col-md-12'>
+
     <div class='container'>
       <div class='row'>
         <div class='col-md-5 col-md-offset-3' id="authorize-div" style="display: none">
@@ -50,15 +51,61 @@
           </button>
         </div>
         <br>
-        <a name='jumpCalendarButton'>
+        <a name='jumpCalendarButton'></a>
         <button id='calendarButton' class='btn btn-lg btn-success center-block authorized' style="display: none">Add Calendar Reminder</button>
         <div id='calendarDateSet'></div>
       </div>
     </div>
-    <br class='col-md-12'>
+
     <div class='container'>
       <div class='row'>
-        <div id='formBox' class='col-md-4'>
+        <div id='conditionBox' class='col-md-4 col-md-offset-1'>
+          <h3>Conditions/Diseases</h3>
+          <div class='panel-group' id='accordion'>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <h4 id='macularSection' class='panel-title'>
+                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse1'>Macular Degeneration, AMD</a>
+                </h4>
+              </div>
+              <div id='collapse1' class='panel-collapse collapse'>
+                <div class='panel-body'>Age-related Macular Degeneration (AMD) is an age-associated degenerative disease of the macula, the central part of the retina (the sensory tissue that lines the back of the eye) that allows the eye to see fine details. AMD is a leading cause of vision loss among people age 50 and older.</div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <h4 id='alzheimerSection' class='panel-title'>
+                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse2'>Alzheimer Disease</a>
+                </h4>
+              </div>
+              <div id='collapse2' class='panel-collapse collapse'>
+                <div class='panel-body'>Alzheimer's Disease is a degenerative disease that slowly destroys brain cells. The symptoms of Alzheimer's disease get worse over time, but the progression of the disease varies. In the early stages it manifests as memory loss and as it progresses results in loss of thinking and language skills (cognitive ability) as well as behavioral changes.</div>
+              </div>
+            </div>
+            <div class='panel panel-default'>
+              <div class='panel-heading'>
+                <h4 id='coronarySection' class='panel-title'>
+                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse3'>Coronary Artery Disease</a>
+                </h4>
+              </div>
+              <div id='collapse3' class='panel-collapse collapse'>
+                <div class='panel-body'>Coronary artery disease is a blockage or damage of the arteries that supply blood, oxygen and nutrients to the heart muscle, often due to a buildup of plaque inside the arteries.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class='col-md-5 col-md-offset-1'>
+          <h3>Your Selected Condition</h3>
+          <div id='selectedCondition'></div>
+          <br>
+
+        </div>
+      </div>
+    </div>
+
+    <div class='container'>
+      <div class='row'>
+        <div id='formBox' class='col-md-8 col-md-offset-2'>
           <h3>Please fill out form</h3>
           <label>Birth Month
             <br>
@@ -76,7 +123,7 @@
           <br>
           <label>Gender
             <br>
-            <select id='gender' name='genders'>
+            <select id='gender' name='genders' class="selectpicker show-tick">
               <option value='male'>Male</option>
               <option value='female'>Female</option>
             </select>
@@ -85,7 +132,7 @@
           <br>
           <label>Ethnicity
             <br>
-            <select id='eth' name='ethnicities'>
+            <select id='eth' name='ethnicities' class="selectpicker show-tick">
               <option value='africanAmerican'>African American</option>
               <option value='asian'>Asian</option>
               <option value='asianIndian'>Asian Indian</option>
@@ -197,8 +244,8 @@
           <br>
           <label>Have you smoked over 100 cigarettes in your lifetime?
             <br>
-            <select id='lifetimeSmoke' name='cigYesNo'>
-              <option value=''>Blank</option>
+            <select id='lifetimeSmoke' name='cigYesNo' class="selectpicker show-tick">
+              <option value=''>Leave Blank</option>
               <option value='yes'>Yes</option>
               <option value='no'>No</option>
             </select>
@@ -207,8 +254,8 @@
           <br>
           <label>Current Smoker?
             <br>
-            <select id='currentSmoker' name='somkerYesNo'>
-              <option value=''>Blank</option>
+            <select id='currentSmoker' name='somkerYesNo' class="selectpicker show-tick">
+              <option value=''>Leave Blank</option>
               <option value='yes'>Yes</option>
               <option value='no'>No</option>
             </select>
@@ -217,8 +264,8 @@
           <br>
           <label>Are you taking actions to stop smoking?
             <br>
-            <select id='stopSmoking' name='stopYesNo'>
-              <option value=''>Blank</option>
+            <select id='stopSmoking' name='stopYesNo' class="selectpicker show-tick">
+              <option value=''>Leave Blank</option>
               <option value='yes'>Yes</option>
               <option value='no'>No</option>
             </select>
@@ -235,8 +282,8 @@
           <br>
           <label>Family member with most sever condition
             <br>
-            <select id='familyMember' name='relationship'>
-              <option value=''>Blank</option>
+            <select id='familyMember' name='relationship' class="selectpicker show-tick">
+              <option value=''>Leave Blank</option>
               <option value='brother'>Brother</option>
               <option value='father'>Father</option>
               <option value='mother'>Mother</option>
@@ -255,8 +302,8 @@
           <br>
           <label>Family member's condition
             <br>
-            <select id='familyMemberCondition' name='fMemberCondtion'>
-              <option value=''>Blank</option>
+            <select id='familyMemberCondition' name='fMemberCondtion' class="selectpicker show-tick">
+              <option value=''>Leave Blank</option>
               <option value='abdomninalAorticAneurysm'>Abdomninal Aortic Aneurysm</option>
               <option value='ageRelatedMacularDegeneration'>Age Related Macular Degeneration</option>
               <option value='alzheimersDisease'>Alzheimers Disease</option>
@@ -284,7 +331,7 @@
           <br>
           <label>Age of Offset of condition/disease
             <br>
-            <select id='ageOnset' name='onsetAge'>
+            <select id='ageOnset' name='onsetAge' class="selectpicker show-tick">
               <option value='below 30'>Below 30</option>
               <option value='30-39'>30-39</option>
               <option value='40-49'>40-49</option>
@@ -293,49 +340,19 @@
               <option value='unknown'>Unknown</option>
             </select>
           </label>
-          <a id='bottomOfFormButton' href="#jumpCalendarButton" class="btn btn-info btn-lg center-block"  role="button">Click to Jump Back Up to Top of Form</a>
+          <br>
+          <button id='submitButton' class='btn btn-success'>Submit</button>
+          <br>
+          <a href="#jumpCalendarButton" type="button" class="btn btn-primary col-md-2 col-md-offset-9">Top of Form</a>
+          <br>
+          <br>
         </div>
-
-        <div id='conditionBox' class='col-md-4'>
-          <h3>Conditions/Diseases</h3>
-          <div class='panel-group' id='accordion'>
-            <div class='panel panel-default'>
-              <div class='panel-heading'>
-                <h4 id='macularSection' class='panel-title'>
-                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse1'>Macular Degeneration, AMD</a>
-                </h4>
-              </div>
-              <div id='collapse1' class='panel-collapse collapse'>
-                <div class='panel-body'>Age-related Macular Degeneration (AMD) is an age-associated degenerative disease of the macula, the central part of the retina (the sensory tissue that lines the back of the eye) that allows the eye to see fine details. AMD is a leading cause of vision loss among people age 50 and older.</div>
-              </div>
-            </div>
-            <div class='panel panel-default'>
-              <div class='panel-heading'>
-                <h4 id='alzheimerSection' class='panel-title'>
-                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse2'>Alzheimer Disease</a>
-                </h4>
-              </div>
-              <div id='collapse2' class='panel-collapse collapse'>
-                <div class='panel-body'>Alzheimer's Disease is a degenerative disease that slowly destroys brain cells. The symptoms of Alzheimer's disease get worse over time, but the progression of the disease varies. In the early stages it manifests as memory loss and as it progresses results in loss of thinking and language skills (cognitive ability) as well as behavioral changes.</div>
-              </div>
-            </div>
-            <div class='panel panel-default'>
-              <div class='panel-heading'>
-                <h4 id='coronarySection' class='panel-title'>
-                  <a data-toggle='collapse' data-parent='#accordion' href='#collapse3'>Coronary Artery Disease</a>
-                </h4>
-              </div>
-              <div id='collapse3' class='panel-collapse collapse'>
-                <div class='panel-body'>Coronary artery disease is a blockage or damage of the arteries that supply blood, oxygen and nutrients to the heart muscle, often due to a buildup of plaque inside the arteries.</div>
-              </div>
-            </div>
-            <br>
-            <div id='selectedCondition'></div>
-            <br>
-            <button id='submitButton' type='button'>Submit</button>
-          </div>
-        </div>
-        <div id='resultsBox' class='col-md-4'>
+      </div>
+    </div>
+    <br>
+    <div class='container'>
+      <div class='row'>
+        <div id='resultsBox' class='col-md-12'>
           <h3>Results</h3>
           <div id='riskWell' class='well'>
             <h5>Risk Level at 65</h5>
@@ -376,9 +393,13 @@
             <h6>Prevalence</h6>
             <p id='statPre'></p>
           </div>
+          <a href="#jumpCalendarButton" type="button" class="btn btn-primary col-md-2 col-md-offset-9">Top of Form</a>
+          <br>
+          <br>
         </div>
       </div>
     </div>
+
     <br>
     <div id='footer' class='row'>
       <div class='col-md-12'>
@@ -387,5 +408,6 @@
     </div>
     <script src='script.js'></script>
     <script src="https://apis.google.com/js/client.js?onload=checkAuth"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
   </body>
 </html>
