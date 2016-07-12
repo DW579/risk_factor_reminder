@@ -1,6 +1,6 @@
 # Reminder for 65
 
-** Summery **
+### Summary
 
 Reminder for 65 helps users learn about risk levels of developing a disease later in life and automatically schedule calendar events for preventative doctor visits.
 
